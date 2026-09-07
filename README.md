@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/8ad6f52f-3532-4eb1-ac9e-43776d6e600d
 # AI Smart Monitor Arm
 
 ## AI 인식 기반 자율 제어 기능의 지능형 모니터 암
@@ -498,7 +500,9 @@ Reduced Oscillation
 
 사용자의 움직임을 인식하고 모니터 암이 자동으로 대응하는 작동 영상입니다.
 
-▶ **[자동 추적 모드 작동 영상](04_results/01_auto_tracking_demo.MP4)**
+https://github.com/user-attachments/assets/e97db1ce-4bfb-43af-9192-48115591451f
+
+원본 파일: [01_auto_tracking_demo.mp4](04_results/01_auto_tracking_demo.MP4)
 
 ---
 
@@ -506,7 +510,9 @@ Reduced Oscillation
 
 사용자가 제어 인터페이스를 이용하여 모니터 암을 직접 조작하는 작동 영상입니다.
 
-▶ **[수동 제어 모드 작동 영상](04_results/02_manual_control_demo.MP4)**
+https://github.com/user-attachments/assets/f9f0a969-07bc-4342-b5db-205e8a1347eb
+
+원본 파일: [02_manual_control_demo.mp4](04_results/02_manual_control_demo.MP4)
 
 ---
 
