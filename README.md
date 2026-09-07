@@ -11,25 +11,25 @@
 
 ---
 
-## Project Preview
+# Project Preview
 
-### Overall Design
+## Overall Design
 
 ![AI Smart Monitor Arm](01_overview/01_project_overview.png)
 
-### System Architecture
+## System Architecture
 
 ![System Architecture](01_overview/02_system_architecture.png)
 
 ---
 
-## 1. Project Overview
+# 1. Project Overview
 
 기존 모니터 암은 사용자가 직접 모니터의 위치와 각도를 조절해야 하므로 사용자의 자세나 위치가 변화할 때마다 반복적인 조작이 필요합니다.
 
 특히 병상 환자, 고령자 또는 거동이 불편한 사용자의 경우 직접 모니터 암을 조작하는 데 어려움이 발생할 수 있습니다.
 
-본 프로젝트에서는 이러한 문제를 해결하기 위해 사용자의 얼굴, 자세 및 위치 정보를 인식하고, 이를 기반으로 모니터 위치를 자동으로 조절할 수 있는 지능형 모니터 암을 설계하였습니다.
+본 프로젝트에서는 이러한 문제를 개선하기 위해 사용자의 얼굴, 자세 및 위치 정보를 인식하고 이를 기반으로 모니터 위치를 자동으로 조절할 수 있는 지능형 모니터 암을 개발하였습니다.
 
 리니어 액추에이터와 서보모터를 활용하여 다음과 같은 다축 구동 구조를 구성하였습니다.
 
@@ -42,7 +42,7 @@
 
 ---
 
-## 2. Project Goals
+# 2. Project Goals
 
 본 프로젝트의 주요 목표는 다음과 같습니다.
 
@@ -60,9 +60,9 @@
 
 ---
 
-## 3. Problem Definition
+# 3. Problem Definition
 
-### 3.1 반복적인 수동 조작
+## 3.1 반복적인 수동 조작
 
 일반적인 모니터 암은 사용자가 직접 모니터를 움직여 원하는 위치를 설정해야 합니다.
 
@@ -70,7 +70,9 @@
 
 특히 거동이 불편한 사용자에게 이러한 방식은 사용상의 제약으로 작용할 수 있습니다.
 
-### 3.2 미세 조작과 안정적인 정지의 상충
+---
+
+## 3.2 미세 조작과 안정적인 정지의 상충
 
 모니터 위치를 안정적으로 유지하기 위해 높은 마찰력이나 댐핑력을 적용하면 미세한 위치 조절이 어려워질 수 있습니다.
 
@@ -78,21 +80,25 @@
 
 따라서 **부드러운 조작성과 이동 후 안정적인 정지 특성을 동시에 고려한 설계**가 필요합니다.
 
-### 3.3 사용자 위치 변화에 대한 대응
+---
+
+## 3.3 사용자 위치 변화에 대한 대응
 
 기존 수동형 모니터 암은 사용자가 이동하거나 자세를 변경하더라도 이를 스스로 인식하여 모니터 위치를 변경하기 어렵습니다.
 
-본 프로젝트에서는 사용자 인식 정보를 기계 구동부와 연계하여 사용자의 위치 변화에 대응하도록 설계하였습니다.
+본 프로젝트에서는 사용자 인식 정보를 기계 구동부와 연계하여 사용자의 위치 변화에 대응하도록 구성하였습니다.
 
-### 3.4 자동 이동 시 충돌 가능성
+---
+
+## 3.4 자동 이동 시 충돌 가능성
 
 모니터 암이 자동으로 이동할 경우 주변 물체 또는 사용자와 충돌할 가능성이 있기 때문에 센서를 활용한 장애물 감지와 안전한 이동 제어가 필요합니다.
 
 ---
 
-## 4. System Architecture
+# 4. System Architecture
 
-시스템은 크게 다음과 같은 구성으로 설계하였습니다.
+시스템은 크게 다음과 같은 구성요소로 설계하였습니다.
 
 1. Base Unit
 2. Height Adjustment Unit
@@ -105,7 +111,7 @@
 9. Obstacle Detection Sensor
 10. Control Unit
 
-### Basic System Flow
+## Basic System Flow
 
 ```text
 User
@@ -142,14 +148,14 @@ Target Position
 전체 시스템은 크게 다음의 운동을 수행할 수 있도록 구성하였습니다.
 
 ```text
-Height
-   +
+Height Adjustment
+        +
 Horizontal Rotation
-   +
-Distance
-   +
-Monitor Angle
-   ↓
+        +
+Distance Adjustment
+        +
+Monitor Angle Adjustment
+        ↓
 Multi-Axis Monitor Positioning
 ```
 
@@ -215,7 +221,7 @@ Viewing Distance Adjustment
 
 모니터의 방향 및 각도를 조절하기 위해 서보모터와 기어 기반의 회전 구조를 적용하였습니다.
 
-구동 방향 변환을 위해 베벨기어를 이용하고, 서보모터의 회전력을 모니터 마운트 방향으로 전달하도록 설계하였습니다.
+구동 방향 변환을 위해 베벨기어를 이용하고 서보모터의 회전력을 모니터 마운트 방향으로 전달하도록 설계하였습니다.
 
 ```text
 Servo Motor
@@ -260,7 +266,7 @@ Monitor Angle Adjustment
 
 # 6. AI User Recognition
 
-사용자의 상태를 인식하기 위한 사용자 인식 시스템은 카메라 및 거리 정보를 활용하도록 설계하였습니다.
+사용자의 상태를 인식하기 위한 사용자 인식 시스템은 카메라 및 거리 정보를 활용하도록 구성하였습니다.
 
 주요 인식 대상은 다음과 같습니다.
 
@@ -283,15 +289,15 @@ AI Processing
 User Information
 ```
 
-얼굴 검출 및 자세 추정을 위해 CNN 기반 얼굴 검출 방식과 OpenPose 또는 MediaPipe 기반 자세 추정 알고리즘 등을 적용할 수 있도록 시스템을 구성하였습니다.
+얼굴 검출 및 자세 추정을 위한 사용자 인식 정보를 모니터 암의 자동 제어 시스템과 연계하였습니다.
 
 ---
 
 # 7. Control System
 
-사용자 인식 결과와 센서 정보를 이용하여 목표 모니터 위치를 계산하고 각 구동부를 제어하도록 설계하였습니다.
+사용자 인식 결과와 센서 정보를 이용하여 목표 모니터 위치를 계산하고 각 구동부를 제어하도록 구성하였습니다.
 
-### Control Flow
+## Control Flow
 
 ```text
 사용자 감지
@@ -386,19 +392,19 @@ Motion Control
 
 사용자가 모니터 암을 직접 움직이기 어려운 상황을 고려하여 무선 기반 사용자 제어 기능을 구성하였습니다.
 
-BLE 등의 무선 통신을 활용하여 스마트폰 애플리케이션 또는 별도의 제어 인터페이스에서 명령을 전달할 수 있도록 설계하였습니다.
+무선 통신을 활용하여 사용자 제어 인터페이스에서 모니터 암 제어 명령을 전달할 수 있도록 구성하였습니다.
 
 ```text
-Smartphone / Controller
-          ↓
+User Interface
+      ↓
 Wireless Communication
-          ↓
+      ↓
 Control Unit
-          ↓
+      ↓
 Monitor Arm
 ```
 
-실제 시제품에서는 사용자 제어 인터페이스를 통한 **수동 제어 모드**의 구동을 확인하였습니다.
+실제 시제품에서는 사용자 제어 인터페이스를 통한 **수동 제어 모드의 구동을 확인**하였습니다.
 
 ---
 
@@ -408,7 +414,7 @@ Monitor Arm
 
 본 프로젝트에서는 이동 속도에 따라 구동 저항이 변화할 수 있는 **속도 감응형 댐핑 개념**을 적용하여 기계적 안정성을 향상시키는 구조를 제안하였습니다.
 
-### Low-Speed Motion
+## Low-Speed Motion
 
 ```text
 Low Motion Speed
@@ -418,7 +424,7 @@ Lower Damping Resistance
 Smooth Fine Adjustment
 ```
 
-### High-Speed Motion
+## High-Speed Motion
 
 ```text
 High Motion Speed
@@ -508,7 +514,7 @@ Reduced Oscillation
 
 본 프로젝트를 통해 다음과 같은 결과물을 도출하였습니다.
 
-- AI 기반 지능형 모니터 암 시스템 설계
+- AI 기반 지능형 모니터 암 시스템 개발
 - 다축 모니터 암 기구 구조 설계
 - 리니어 액추에이터 기반 높이 조절 구조 설계
 - 리니어 액추에이터 기반 거리 조절 구조 설계
@@ -535,11 +541,13 @@ Actuator Selection
         ↓
 Sensor Integration
         ↓
-AI User Recognition Concept
+AI User Recognition
         ↓
 Control Architecture Design
         ↓
-Safety Consideration
+Mechanical Design
+        ↓
+Software Development
         ↓
 Prototype Development
         ↓
@@ -554,22 +562,84 @@ Patent Application
 
 ---
 
-# 17. Engineering Skills
+# 17. My Contribution
+
+본 프로젝트는 팀 프로젝트로 진행되었으며, **기계 설계와 제어·소프트웨어 개발은 제가 전담하였고, 시제품 제작과 시험 및 기타 프로젝트 수행 과정은 팀원들과 공동으로 진행하였습니다.**
+
+## 17.1 Individual Contribution
+
+### Mechanical Design
+
+모니터 암의 기계설계를 전담하였습니다.
+
+주요 수행 내용은 다음과 같습니다.
+
+- 모니터 암 전체 기구 구조 설계
+- 다축 구동 메커니즘 설계
+- 높이조절부 설계
+- 수평회전부 설계
+- 거리조절부 설계
+- 모니터 각도조절부 설계
+- 리니어 액추에이터 적용 구조 설계
+- 서보모터 적용 구조 설계
+- 기어 및 동력전달 구조 설계
+- 내부 액추에이터 및 구동부 배치 설계
+- 부품 간 결합구조 설계
+- 전체 CAD Assembly 구성
+- 내부 부품 간 간섭 및 조립 구조 검토
+
+### Control & Software Development
+
+모니터 암의 제어 및 소프트웨어 개발을 전담하였습니다.
+
+주요 수행 내용은 다음과 같습니다.
+
+- 모니터 암 제어 시스템 코딩
+- 다축 구동 제어 로직 구현
+- 사용자 인식 정보를 활용한 자동 제어 기능 구현
+- 사용자 추적 기반 모니터 위치 제어
+- 수동 제어 기능 구현
+- 리니어 액추에이터 구동 제어
+- 서보모터 구동 제어
+- 구동 순서 및 시스템 동작 로직 구현
+- 시제품 구동 과정에서 발생한 제어 로직 수정 및 개선
+
+## 17.2 Team Contribution
+
+설계와 코딩을 제외한 프로젝트 수행 과정은 팀원들과 공동으로 진행하였습니다.
+
+- 시제품 제작 및 조립
+- 부품 준비
+- 전기·기계 시스템 통합
+- 실제 구동 시험
+- 시제품 문제점 확인 및 개선
+- 졸업작품 결과 정리
+- 발표 및 프로젝트 문서 작성
+- 특허 아이디어 및 기술 내용 검토
+
+본 프로젝트에서 저는 **아이디어를 실제로 작동 가능한 기계 구조와 제어 시스템으로 구현하는 역할**을 담당하였으며, 이후 시제품 제작과 시험 과정에서는 팀원들과 협업하여 시스템을 완성하였습니다.
+
+---
+
+# 18. Engineering Skills
 
 ## Mechanical Engineering
 
 - 기구설계
-- 다축 구동 메커니즘
-- 리니어 액추에이터 활용
-- 서보모터 활용
+- 다축 구동 메커니즘 설계
+- CAD Assembly 설계
+- 리니어 액추에이터 적용
+- 서보모터 적용
 - 기어 기반 동력 전달
+- 내부 구동부 배치
+- 부품 간 간섭 검토
 - 모니터 암 구조 설계
-- 내부 부품 배치
 - 구동 안정성 검토
 
 ## Mechatronics
 
-- 액추에이터와 센서 통합
+- 기계 구조와 액추에이터 통합
+- 액추에이터와 센서 연계
 - 엔코더 기반 위치 피드백
 - 센서 기반 자동제어
 - 다축 모션 시스템 구성
@@ -578,11 +648,14 @@ Patent Application
 ## AI & Control
 
 - 사용자 인식 기반 제어
-- 얼굴 위치 추적
-- 자세 인식
+- 얼굴 위치 추적 기반 제어
+- 자세 및 위치 정보 활용
 - 목표 위치 계산
 - 자동 위치 조절
 - 사용자 추적
+- 액추에이터 제어
+- 서보모터 제어
+- 수동·자동 모드 구현
 - 장애물 감지 기반 제어 개념
 
 ## Engineering Documentation
@@ -592,11 +665,12 @@ Patent Application
 - 아이디어 구체화
 - 시스템 아키텍처 구성
 - 기술 구조 정리
+- 시제품 결과 정리
 - 특허 출원
 
 ---
 
-# 18. Patent
+# 19. Patent
 
 본 졸업작품의 설계 및 개발 결과를 기반으로 지능형 모니터 암에 대한 특허를 출원하였습니다.
 
@@ -637,7 +711,7 @@ Patent Application
 
 ---
 
-# 19. Repository Structure
+# 20. Repository Structure
 
 ```text
 ai-smart-monitor-arm/
@@ -663,31 +737,33 @@ ai-smart-monitor-arm/
     └── 02_manual_control_demo.mp4
 ```
 
-### `01_overview`
+## `01_overview`
 
 프로젝트 대표 이미지 및 전체 시스템 구성도를 저장합니다.
 
-### `02_design`
+## `02_design`
 
 공개 가능한 CAD 이미지와 기계 구조 설계 결과를 저장합니다.
 
-### `03_control`
+## `03_control`
 
 사용자 인식, 센서 및 제어 시스템의 구성과 작동 개념을 정리합니다.
 
-### `04_results`
+## `04_results`
 
 실제 시제품의 자동 및 수동 제어 작동 영상을 저장합니다.
 
 ---
 
-# 20. Project Keywords
+# 21. Project Keywords
 
 `Mechanical Design`  
+`CAD Assembly`  
 `Mechatronics`  
 `Smart Monitor Arm`  
 `Linear Actuator`  
 `Servo Motor`  
+`Gear Transmission`  
 `Encoder`  
 `Sensor`  
 `Motion Control`  
@@ -695,16 +771,19 @@ ai-smart-monitor-arm/
 `Computer Vision`  
 `Human Tracking`  
 `Automatic Positioning`  
-`Obstacle Detection`  
+`Multi-Axis Control`  
 `System Integration`  
+`Prototype Development`  
 `Engineering Design`  
 `Patent`
 
 ---
 
-# 21. Notes
+# 22. Notes
 
 본 Repository는 기계공학 졸업작품의 기술적 개념과 개발 과정을 **취업 포트폴리오 목적**으로 정리한 자료입니다.
+
+본 프로젝트는 팀 프로젝트이며, **기계 설계 및 제어·소프트웨어 개발은 개인 전담으로 수행하였고, 시제품 제작·조립·시험 및 기타 프로젝트 과정은 팀원들과 공동으로 수행하였습니다.**
 
 프로젝트의 전체 시스템 개념과 공개 가능한 기계설계 및 시제품 결과를 중심으로 구성하였습니다.
 
